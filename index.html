@@ -1,0 +1,228 @@
+<!-- 
+    The Bootstrap starting Template (template starter page)
+    Please notice that I used the file name "index.1.html" then index2, index3, and so on just as a demo
+    At the end we will add our final index.html
+ -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!-- 
+    Bootstrap 4 is designed to be responsive to mobile devices. Mobile-first styles are part of the core framework.
+    To ensure proper rendering and touch zooming, add the following <meta> tag inside the <head> element
+
+    - The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).
+
+    - The initial-scale=1 part sets the initial zoom level when the page is first loaded by the browser.
+   -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- 
+      After loading Bootstrap CSS
+      We are loading our custom styles inside this file:
+     -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Bootstrap The Basic and Grid</title>
+</head>
+
+<body>
+    <!-- 
+        Containers are the most basic layout element in Bootstrap and are required when using our default grid system. 
+        Containers are used to contain, pad, and (sometimes) center the content within them. While containers can be nested, most layouts do not require a nested container.
+        We can center our content horizontally with containers
+
+        Bootstrap comes with three different containers:
+
+        .container, which sets a max-width at each responsive breakpoint
+        .container-fluid, which is width: 100% at all breakpoints (Try this one also)
+        .container-{breakpoint}, which is width: 100% until the specified breakpoint
+
+        The link: https://getbootstrap.com/docs/4.6/layout/overview/#containers
+
+        We can add background classes provided by bootstrap to see it better in the browser:
+        Also adding a background color: https://getbootstrap.com/docs/4.6/utilities/colors/#background-color
+    -->
+    <div class="container bg-light">
+        <!-- 
+        Bootstrap’s grid system uses a series of containers, rows, and columns to layout and align content. 
+        It’s built with flexbox and is fully responsive. Below is an example and an in-depth look at how the grid comes together.
+
+        <tr> => div class="row"
+                <td></td> => div class="col"
+            </tr>
+
+        Rows are wrappers for columns. 
+        Each column has horizontal padding (called a gutter) for controlling the space between them. 
+        This padding is then counteracted on the rows with negative margins. 
+        This way, all the content in your columns is visually aligned down the left side. 
+    -->
+        <h2>Using col without any other details</h2>
+        <div class="row">
+            <div class="col bg-primary">
+                First Row => First Column
+            </div>
+            <div class="col bg-warning">
+                First Row => Second Column
+            </div>
+        </div> <!-- end div.row -->
+
+        <div class="row">
+            <div class="col bg-info">
+                Second Row => First Column
+            </div>
+            <div class="col bg-light">
+                Second Row => Second Column
+            </div>
+            <div class="col bg-dark">
+                Second Row => Third Column
+            </div>
+        </div> <!-- end div.row -->
+        <!-- 
+        Because maximum is 12 columns, so for example to have two equal size div elements besides each other we can give each one 6-column width,
+        or if you want 3 columns you can give each div 4-column width and so on...
+
+        Grid Classes
+        The Bootstrap 4 grid system has five classes:
+
+        .col- (extra small devices - screen width less than 576px)
+        .col-sm- (small devices - screen width equal to or greater than 576px)
+        .col-md- (medium devices - screen width equal to or greater than 768px)
+        .col-lg- (large devices - screen width equal to or greater than 992px)
+        .col-xl- (xlarge devices - screen width equal to or greater than 1200px)
+        The classes above can be combined to create more dynamic and flexible layouts.
+
+        Tip: Each class scales up, so if you wish to set the same widths for sm and md, you only need to specify sm.
+        -->
+        <hr>
+        <h2>Using col with specific numbers</h2>
+        <div class="row">
+            <div class="col-6 bg-danger">
+                Content Div 1
+            </div>
+
+            <div class="col-4 bg-warning">
+                Content Div 2
+            </div>
+
+            <div class="col-12 bg-info">
+                Content Div 3
+            </div>
+        </div> <!-- end div.row -->
+        <hr>
+
+        <h2>Using col with specific numbers and specific screen sizes</h2>
+        <div class="row">
+            <!-- 
+            Below we used col-md-4, 
+            based on breakpoints they will stack besides each other
+            if the browser window is greater than 768px 
+            if we reduced the browser width to less than 768px they will be stacked vertically
+            **********************************************************************************
+            For small screen devices, we can use col-sm
+            Example:
+            if we want content1 and content2 to be displayed in one line (horizontally)
+            and content3 to be displayed below them we can add the classes:
+            - col-sm-6 for the first and the second divs
+            - notice that we don't need to add col-sm-12 for the third div as it's the default
+            Notice that col-sm works with minimum 576px
+            -->
+            <div class="col-sm-6 col-md-4 bg-danger">
+                Content Div 1
+            </div>
+
+            <div class="col-sm-6 col-md-4 bg-warning">
+                Content Div 2
+            </div>
+            <!-- 
+                this class "col-sm-12" is optional
+                We haven't specified/added the class "col-sm-12" 
+                for the division below, it's the default number of columns is 12:
+            -->
+            <div class="col-md-4 bg-info">
+                Content Div 3
+            </div>
+        </div> <!-- end div.row -->
+        <hr>
+
+        <h2>More Domo</h2>
+        <!-- Creating another div.row for more practising -->
+        <div class="row bg-primary">
+            <!-- 
+          to create "Three Equal Columns" for any screen size
+          we can do it by using the class .col
+          The following example shows how to create three equal-width columns, 
+          on all devices and screen widths: 
+        -->
+            <div class="col bg-danger">
+                Content Div 1
+            </div>
+            <div class="col bg-warning">
+                Content Div 2
+            </div>
+            <div class="col bg-info">
+                Content Div 3
+            </div>
+        </div> <!-- end div.row -->
+        <hr>
+
+        <!-- Creating another div.row for more practising -->
+        <h2>Using our own custom styles for layout</h2>
+        <div class="last-div">
+            <!-- 
+                We can add our own classes: "main-content" and "sidebar"
+             -->
+            <div class="main-content bg-primary">
+                <p>The main content of the page (the larger size)</p>
+                <p>We place our main articles here</p>
+                <p>We place our main images here</p>
+            </div>
+            <div class="sidebar bg-secondary">
+                <p>The content of the sidebar (the smaller size)</p>
+            </div>
+        </div>
+
+
+        <h2>Using Bootstrp Grid System for layout</h2>
+        <div class="row">
+            <!-- 
+                Remember that "col-sm-12" is by default
+             -->
+            <div class="col-sm-12 col-md-9 bg-info">
+                <p>The main content of the page (the larger size)</p>
+                <p>We place our main articles here</p>
+                <p>We place our main images here</p>
+            </div>
+            <div class="col-sm-12 col-md-3 bg-success">
+                <p>The content of the sidebar (the smaller size)</p>
+            </div>
+        </div>
+
+
+    </div> <!-- end div.container -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
