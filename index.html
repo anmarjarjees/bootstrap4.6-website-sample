@@ -1,6 +1,6 @@
 <!-- 
     The Bootstrap starting Template (template starter page)
-    Please notice that I used the file name "index.1.html" then index2, index3, and so on just as a demo
+    Please notice that I used the file name "index.2.html" then index3, index4, and so on just as a demo
     At the end we will add our final index.html
  -->
 <!doctype html>
@@ -29,241 +29,109 @@
      -->
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Bootstrap The Basic and Grid</title>
+    <title>The Basic Website Content</title>
 </head>
 
 <body>
+    <header>
+        <!-- empty for now but we will add the nav code later -->
+    </header>
     <!-- 
-        Containers are the most basic layout element in Bootstrap and are required when using our default grid system. 
-        Containers are used to contain, pad, and (sometimes) center the content within them. While containers can be nested, most layouts do not require a nested container.
-        We can center our content horizontally with containers
-
-        Bootstrap comes with three different containers:
-
-        .container, which sets a max-width at each responsive breakpoint
-        .container-fluid, which is width: 100% at all breakpoints (Try this one also)
-        .container-{breakpoint}, which is width: 100% until the specified breakpoint
-
-        The link: https://getbootstrap.com/docs/4.6/layout/overview/#containers
-
-        We can add background classes provided by bootstrap to see it better in the browser:
-        Also adding a background color: https://getbootstrap.com/docs/4.6/utilities/colors/#background-color
+    Bootstrap comes with three different containers:
+    .container, which sets a max-width at each responsive breakpoint
     -->
     <div class="container bg-light">
         <!-- 
-        Bootstrap’s grid system uses a series of containers, rows, and columns to layout and align content. 
-        It’s built with flexbox and is fully responsive. Below is an example and an in-depth look at how the grid comes together.
-
-        <tr> => div class="row"
-                <td></td> => div class="col"
-            </tr>
-
-        Rows are wrappers for columns. 
-        Each column has horizontal padding (called a gutter) for controlling the space between them. 
-        This padding is then counteracted on the rows with negative margins. 
-        This way, all the content in your columns is visually aligned down the left side. 
-    -->
-        <h2>Using col without any other details</h2>
-        <div class="row">
-            <div class="col bg-primary">
-                First Row => First Column
-            </div>
-            <div class="col bg-warning">
-                First Row => Second Column
-            </div>
-        </div> <!-- end div.row -->
-
-        <div class="row">
-            <div class="col bg-info">
-                Second Row => First Column
-            </div>
-            <div class="col bg-light">
-                Second Row => Second Column
-            </div>
-            <div class="col bg-dark">
-                Second Row => Third Column
-            </div>
-        </div> <!-- end div.row -->
-        <!-- 
-        Because maximum is 12 columns, so for example to have two equal size div elements besides each other we can give each one 6-column width,
-        or if you want 3 columns you can give each div 4-column width and so on...
-
-        Grid Classes
-        The Bootstrap 4 grid system has five classes:
-
-        .col- (extra small devices - screen width less than 576px)
-        .col-sm- (small devices - screen width equal to or greater than 576px)
-        .col-md- (medium devices - screen width equal to or greater than 768px)
-        .col-lg- (large devices - screen width equal to or greater than 992px)
-        .col-xl- (xlarge devices - screen width equal to or greater than 1200px)
-        The classes above can be combined to create more dynamic and flexible layouts.
-
-        Tip: Each class scales up, so if you wish to set the same widths for sm and md, you only need to specify sm.
-        -->
-        <hr>
-        <h2>Using col with specific numbers</h2>
-        <div class="row">
-            <div class="col-6 bg-danger">
-                Content Div 1 with col-6
-            </div>
-
-            <div class="col-4 bg-warning">
-                Content Div 2 with col-4
-            </div>
-
-            <div class="col-12 bg-info">
-                Content Div 3 with col-12
-            </div>
-        </div> <!-- end div.row -->
-        <hr>
-
-        <h2>Using col with specific numbers and specific screen sizes</h2>
-        <div class="row">
+            the class "text-center": Center aligned text on all viewport sizes
+            The link: https://getbootstrap.com/docs/4.6/utilities/text/#text-alignment
+         -->
+        <div class="row text-center">
             <!-- 
-            Below we used col-md-4, 
-            based on breakpoints they will stack besides each other
-            if the browser window is greater than 768px 
-            if we reduced the browser width to less than 768px they will be stacked vertically
-            **********************************************************************************
-            For small screen devices, we can use col-sm
-            Example:
-            if we want content1 and content2 to be displayed in one line (horizontally)
-            and content3 to be displayed below them we can add the classes:
-            - col-sm-6 for the first and the second divs
-            - notice that we don't need to add col-sm-12 for the third div as it's the default
-            Notice that col-sm works with minimum 576px
-
-            sm => md => lg => xl
-            -->
-            <div class="col-sm-6 col-md-4 bg-danger">
-                Content Div 1 with col-sm-6 and col-md-4
-            </div>
-
-            <div class="col-sm-6 col-md-4 bg-warning">
-                Content Div 2 with col-sm-6 and col-md-4
-            </div>
-            <!-- 
-                this class "col-sm-12" is optional
-                We haven't specified/added the class "col-sm-12" 
-                for the division below, it's the default number of columns is 12 with the small devices:
-            -->
-            <div class="col-md-4 bg-info">
-                Content Div 3 with only col-md-4
-            </div>
-        </div> <!-- end div.row -->
-        <hr>
-
-        <h2>More Domo</h2>
-        <!-- Creating another div.row for more practising -->
-        <div class="row bg-primary">
-            <!-- 
-          to create "Three Equal Columns" for any screen size
-          we can do it by using the class .col
-          The following example shows how to create three equal-width columns, 
-          on all devices and screen widths: 
-        -->
-            <div class="col bg-danger">
-                Content Div 1
-            </div>
-            <div class="col bg-warning">
-                Content Div 2
-            </div>
-            <div class="col bg-info">
-                Content Div 3
-            </div>
-        </div> <!-- end div.row -->
-        <hr>
-        <!-- 
-        What happens if the total of the columns is less/more than 12?
-
-        If more than 12 columns are placed within a single row, 
-        each group of extra columns will, as one unit, wrap onto a new line as we saw in the example above
-
-        If less than 12 columns are placed, there will have an empty/empty column(s) or a space at the end of the row.
-        In such case we can move the content (columns) to the right, or center them
-        by using offset class.
-
-        Offset classes:
-        Move columns to the right using .offset-md-* classes. 
-        These classes increase the left margin of a column by * columns. 
-
-        For example, .offset-md-4 moves .col-md-4 over four columns.
-
-        below we are adding "offset-sm-2" to look centre
-
-        NOTE: 
-        Don't forget that offset-sm-2 class will be applied on small screen devices
-        and larger/above, 
-        so we need to disable (reset) the offset to 0 for medium screen devices and higher/above 
-        by adding "offset-md-0"
-
-        You can read more about offset:
-        https://getbootstrap.com/docs/4.6/layout/grid/#offsetting-columns
-        -->
-        <h2>Using offset classes</h2>
-        <div class="row">
-            <!-- 
-                in small screen devices:
-                - div#1 will take 4 columns
-                - div#2 will take 4 columns
-                - div#3 will take 12 columns by default because bootstrap will use this default value
-
-                We want to add the offset of 2 columns ONLY with small screen devices
-                offset-sm-2 => this will be applied to small screens and larger
-                sm => md => lg => xl
-                We need to remove the offset from the medium screen, large, and xlarge:
-                we can add:
-                offset-md-0 => this will be applied to medium screens and larger
-
-                Notice that we don't have to add: col-md-4 since we have col-sm-4
+                Using one of the utilities classes options "rounded"
+                Use .rounded-lg or .rounded-sm for larger or smaller border-radius. 
+                The link: https://getbootstrap.com/docs/4.6/utilities/borders/#border-radius
              -->
-            <div class="offset-sm-2 offset-md-0 col-sm-4 bg-danger">
-                Content Div 1 with col-sm-4 col-md-4 and by adding also offset-sm-2
+            <div class="col-md-4 bg-danger rounded-sm overflow-auto">
+                <h2>French Press</h2>
+                <!-- 
+                    Make the images look like circles by adding rounded corners:
+                    The .rounded-circle class shapes the image to a circle:
+                    You can check this link: https://www.w3schools.com/bootstrap4/bootstrap_images.asp
+                    
+                    Bootstrap Size Utility:
+                    The link: https://getbootstrap.com/docs/4.6/utilities/sizing/
+
+                    * .w-75 is a bootstrap utility class to set the image to be 75% of its container (the parent element)
+                 -->
+                <img class="w-75 rounded-circle" src="images/frenchpress.jpg" alt="French Press Coffee">
+                <!-- 
+                The .btn classes are designed to be used with the <button> element. 
+                However, you can also use these classes on <a> or <input> elements (though some browsers may apply a slightly different rendering).
+                The link: https://getbootstrap.com/docs/4.6/components/buttons/
+
+                The example: <a class="btn btn-primary" href="#" role="button">Link</a>
+
+                role="button" to appropriately convey their purpose to assistive technologies such as screen readers.
+
+                adding HTML4 Entities
+                Check this link: https://www.w3schools.com/charsets/ref_html_entities_4.asp
+                -->
+                <a class="btn btn-primary" href="#" role="button">Try our French Press &raquo;</a>
+                <p>A French press, also known as a press pot, coffee press, or coffee plunger is a coffee brewing device
+                    patented by Italian designer Attilio Calimani in 1929.
+                </p>
             </div>
-            <!-- Notice that we don't have to add: col-md-4 since we have col-sm-4 -->
-            <div class="col-sm-4 bg-warning">
-                Content Div 2 with col-sm-4 col-md-4
+
+            <div class="col-md-4 bg-warning rounded-sm overflow-auto">
+                <h2>Mocha Latte</h2>
+                <img class="w-75 rounded-circle" src="images/mocha_latte.jpg" alt="Mocha Latte Coffee">
+                <a class="btn btn-primary" href="#" role="button">Try our Mocha Latte &raquo;</a>
+                <p>A caffe mocha is a variant of a caffè latte. Like a latte, it is typically one third espresso and two
+                    thirds
+                    steamed milk, but a portion of chocolate is added, typically in the form of a chocolate syrup.
+                </p>
             </div>
-            <!-- 
-                If we removed the col-sm-6! what will be the columns for small screens?
-                Bootstrap will use col-sm-12
-             -->
-            <div class="col-md-4 bg-info">
-                Content Div 2 with only col-md-4
+
+            <div class="col-md-4 bg-info rounded-sm overflow-auto">
+                <h2>Turkish Coffee</h2>
+                <img class="w-75 rounded-circle" src="images/turkish.jpg" alt="Turkish coffee">
+                <a class="btn btn-primary" href="#" role="button">Try our Turkish Coffee &raquo;</a>
+                <p>Beans for Turkish coffee are ground to a fine powder. Turkish coffee is prepared by immersing the
+                    coffee
+                    grounds in water and heating until it just boils.
+                </p>
             </div>
         </div> <!-- end div.row -->
-
-        <!-- Creating another div.row for more practising -->
-        <h2>Using our own custom styles for layout</h2>
-        <div class="last-div">
-            <!-- 
-                We can add our own classes: "main-content" and "sidebar"
-             -->
-            <div class="main-content bg-primary">
-                <p>The main content of the page (the larger size)</p>
-                <p>We place our main articles here</p>
-                <p>We place our main images here</p>
-            </div>
-            <div class="sidebar bg-secondary">
-                <p>The content of the sidebar (the smaller size)</p>
-            </div>
-        </div>
-
-        <h2>Using Bootstrp Grid System for layout</h2>
-        <div class="row">
-            <!-- 
-                Remember that "col-sm-12" is by default
-             -->
-            <div class="col-sm-12 col-md-9 bg-info">
-                <p>The main content of the page (the larger size)</p>
-                <p>We place our main articles here</p>
-                <p>We place our main images here</p>
-            </div>
-            <div class="col-sm-12 col-md-3 bg-success">
-                <p>The content of the sidebar (the smaller size)</p>
-            </div>
-        </div>
     </div> <!-- end div.container -->
+
+    <!-- 
+    Adding footer:
+    Bootstrap 4 Jumbotron indicates a big grey box for calling extra attention to some special content or information.
+    Tip: Inside a jumbotron you can put nearly any valid HTML, including other Bootstrap elements/classes.
+
+    The link: https://getbootstrap.com/docs/4.6/components/jumbotron/
+
+    We can use div as usual instead of footer, but it's good to use HTML5 semantic elements
+  -->
+    <footer class="jumbotron text-center">
+        <!-- <h1>Coffee Corner</h1> -->
+        <!-- 
+            Display Headings:
+            Display headings are used to stand out more than normal headings (larger font-size and lighter font-weight), 
+            and there are four classes to choose from: .display-1, .display-2, .display-3, .display-4
+            The link: https://www.w3schools.com/bootstrap4/bootstrap_typography.asp
+         -->
+        <h1 class="display-4">Coffee Corner</h1>
+        <!-- 
+            Lead => Make a paragraph stand out by adding .lead => enlarge the font size
+            The link: https://getbootstrap.com/docs/4.6/content/typography/#lead
+
+            Using some of the Text Utilities:
+            The link: https://getbootstrap.com/docs/4.6/utilities/text/#font-weight-and-italics
+         -->
+        <p class="lead font-weight-bold font-italic">The corner where you can have your favourite coffee mixed with your
+            favourite moments!</p>
+    </footer>
 
     <!-- All our HTML elements HAVE to be placed before calling our scripts (JavaScript): -->
 
