@@ -104,15 +104,15 @@
         <h2>Using col with specific numbers</h2>
         <div class="row">
             <div class="col-6 bg-danger">
-                Content Div 1
+                Content Div 1 with col-6
             </div>
 
             <div class="col-4 bg-warning">
-                Content Div 2
+                Content Div 2 with col-4
             </div>
 
             <div class="col-12 bg-info">
-                Content Div 3
+                Content Div 3 with col-12
             </div>
         </div> <!-- end div.row -->
         <hr>
@@ -132,21 +132,23 @@
             - col-sm-6 for the first and the second divs
             - notice that we don't need to add col-sm-12 for the third div as it's the default
             Notice that col-sm works with minimum 576px
+
+            sm => md => lg => xl
             -->
             <div class="col-sm-6 col-md-4 bg-danger">
-                Content Div 1
+                Content Div 1 with col-sm-6 and col-md-4
             </div>
 
             <div class="col-sm-6 col-md-4 bg-warning">
-                Content Div 2
+                Content Div 2 with col-sm-6 and col-md-4
             </div>
             <!-- 
                 this class "col-sm-12" is optional
                 We haven't specified/added the class "col-sm-12" 
-                for the division below, it's the default number of columns is 12:
+                for the division below, it's the default number of columns is 12 with the small devices:
             -->
             <div class="col-md-4 bg-info">
-                Content Div 3
+                Content Div 3 with only col-md-4
             </div>
         </div> <!-- end div.row -->
         <hr>
@@ -171,6 +173,65 @@
             </div>
         </div> <!-- end div.row -->
         <hr>
+        <!-- 
+        What happens if the total of the columns is less/more than 12?
+
+        If more than 12 columns are placed within a single row, 
+        each group of extra columns will, as one unit, wrap onto a new line as we saw in the example above
+
+        If less than 12 columns are placed, there will have an empty/empty column(s) or a space at the end of the row.
+        In such case we can move the content (columns) to the right, or center them
+        by using offset class.
+
+        Offset classes:
+        Move columns to the right using .offset-md-* classes. 
+        These classes increase the left margin of a column by * columns. 
+
+        For example, .offset-md-4 moves .col-md-4 over four columns.
+
+        below we are adding "offset-sm-2" to look centre
+
+        NOTE: 
+        Don't forget that offset-sm-2 class will be applied on small screen devices
+        and larger/above, 
+        so we need to disable (reset) the offset to 0 for medium screen devices and higher/above 
+        by adding "offset-md-0"
+
+        You can read more about offset:
+        https://getbootstrap.com/docs/4.6/layout/grid/#offsetting-columns
+        -->
+        <h2>Using offset classes</h2>
+        <div class="row">
+            <!-- 
+                in small screen devices:
+                - div#1 will take 4 columns
+                - div#2 will take 4 columns
+                - div#3 will take 12 columns by default because bootstrap will use this default value
+
+                We want to add the offset of 2 columns ONLY with small screen devices
+                offset-sm-2 => this will be applied to small screens and larger
+                sm => md => lg => xl
+                We need to remove the offset from the medium screen, large, and xlarge:
+                we can add:
+                offset-md-0 => this will be applied to medium screens and larger
+
+                Notice that we don't have to add: col-md-4 since we have col-sm-4
+             -->
+            <div class="offset-sm-2 offset-md-0 col-sm-4 bg-danger">
+                Content Div 1 with col-sm-4 col-md-4 and by adding also offset-sm-2
+            </div>
+            <!-- Notice that we don't have to add: col-md-4 since we have col-sm-4 -->
+            <div class="col-sm-4 bg-warning">
+                Content Div 2 with col-sm-4 col-md-4
+            </div>
+            <!-- 
+                If we removed the col-sm-6! what will be the columns for small screens?
+                Bootstrap will use col-sm-12
+             -->
+            <div class="col-md-4 bg-info">
+                Content Div 2 with only col-md-4
+            </div>
+        </div> <!-- end div.row -->
 
         <!-- Creating another div.row for more practising -->
         <h2>Using our own custom styles for layout</h2>
@@ -188,7 +249,6 @@
             </div>
         </div>
 
-
         <h2>Using Bootstrp Grid System for layout</h2>
         <div class="row">
             <!-- 
@@ -203,9 +263,9 @@
                 <p>The content of the sidebar (the smaller size)</p>
             </div>
         </div>
-
-
     </div> <!-- end div.container -->
+
+    <!-- All our HTML elements HAVE to be placed before calling our scripts (JavaScript): -->
 
     <!-- Optional JavaScript; choose one of the two! -->
 
