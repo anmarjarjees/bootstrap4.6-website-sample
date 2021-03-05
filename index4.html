@@ -24,7 +24,7 @@
      -->
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Bootstrap Modal And other spacing</title>
+    <title>Bootstrap Carousels</title>
 </head>
 
 <body>
@@ -55,6 +55,36 @@
             </div>
         </nav>
     </header>
+
+    <!-- 
+      Carousel:
+      A slideshow component for cycling through elements—images or slides of text—like a carousel.
+      Bootstrap Link: https://getbootstrap.com/docs/4.6/components/carousel/
+
+      Via data-* Attributes:
+      * The data-* attribute is used to store custom data private to the page or application.
+      * The data-* attribute gives us the ability to embed custom data attributes on all HTML elements.
+
+      The data-ride="carousel" attribute activates the carousel.
+      The data-slide and data-slide-to attributes specifies which slide to go to.
+      The data-slide attribute accepts two values: prev or next, while data-slide-to accept numbers.
+
+      The data-ride="carousel" attribute is used to mark a carousel as animating starting at page load. 
+      If you don’t use data-ride="carousel" to initialize your carousel, 
+      you have to initialize it yourself. 
+      It cannot be used in combination with (redundant and unnecessary) explicit JavaScript initialization of the same carousel.
+
+      Notice that we renamed "carouselExampleCaptions" to be "carouselControlsCaptions"
+
+      We also added the following two BS classes:
+        .d-none => to make it hidden (in css we used display: none)
+        .d-md-block => for the medium size and beyond will be display: block
+
+     So we can add these two classes:  .d-none .d-md-block
+     .d-none = will make it hidden in all devices
+     .d-md-block = will make it block on Medium devices and greater
+     sm => md => lg => xl
+     -->
     <div id="carouselExampleCaptions" class="carousel slide d-none d-md-block" data-ride="carousel"
         data-myattribute="Practice">
         <ol class="carousel-indicators">
@@ -63,15 +93,34 @@
             <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
             <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
         </ol>
+        <!-- 
+        This div.carousel-inner will be the wrapper for the images
+        -->
         <div class="carousel-inner">
-
+            <!-- 
+          One of the images has to have the class active to be displayed in the page
+          which is usually the first image, then Bootstrap will remove/add this class 
+          to all the images in this carousel
+        -->
             <div class="carousel-item active">
+                <!-- 
+                * .w-100 is a bootstrap utility class to set the image to be 100% as it's container
+                Link: https://getbootstrap.com/docs/4.6/utilities/sizing/
 
+                * .d-block is a bootstrap utility class to set display to block and Visible on all screen sizes
+                Link: https://getbootstrap.com/docs/4.6/utilities/display/   
+                 -->
                 <img src="images/carousel1.jpg" class="d-block w-100" alt="carousel coffee image1">
-
+                <!-- 
+                    .carousel-caption: Add captions to your slides within any .carousel-item. 
+                    They can be easily hidden on smaller viewport, as shown below, with optional display utilities. 
+                    We hide them initially with .d-none and bring them back on medium-sized devices with .d-md-block.
+                -->
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide Image</h5>
-
+                    <!--
+                        The span element and the code inside it was completely copied from Usplash
+                      -->
                     <p>Photo by
                         <span>Photo by
                             <a
@@ -125,7 +174,7 @@
                     </p>
                 </div>
             </div> <!-- end div.carousel-item -->
-
+            
         </div> <!-- end div.carousel-inner -->
 
         <!-- Adding the controls button: Left (Previous) and Right (Next) -->
@@ -143,53 +192,31 @@
         </a>
     </div> <!-- end div#carouselExampleCaptions -->
 
-    <div class="container bg-dark">
-        <!-- 
-        Working Bootstrap Spacing:
-        The link: https://getbootstrap.com/docs/4.6/utilities/spacing/
-
-    Modify the margins and the padding of these three div elements
-    Adding padding for top and bottom of 5 and etc..
-
-    adding a padding of 3 rem to top and bottom
-    py-3 ==> padding on y-axis (from top and bottom)
-
-    adding a margin of 2 to all the sides
-
-    This div.row contains the three column divs for 3 coffee flavours
-    let's give it a class name to be use in our CSS custom file called "new-flav" new flavours
-    -->
-        <div class="row text-center py-3 m-2 new-flav">
-            <!-- 
-                adding margins for divs with class of "col-" will distroy the BS grid system
-                m-1
-             -->
-            <div class="col-md-4 bg-danger rounded-lg overflow-auto">
+    <div class="container bg-light">
+        <div class="row text-center">
+            <div class="col-md-4 bg-danger rounded-sm overflow-auto">
                 <h2>French Press</h2>
                 <img class="w-75 rounded-circle" src="images/frenchpress.jpg" alt="French Press Coffee">
-                <!-- 
-                    Adding margins of 2 rem from top and bottom => my-2
-                 -->
-                <a class="btn btn-primary my-2" href="#" role="button">Try our French Press &raquo;</a>
+                <a class="btn btn-primary" href="#" role="button">Try our French Press &raquo;</a>
                 <p>A French press, also known as a press pot, coffee press, or coffee plunger is a coffee brewing device
                     patented by Italian designer Attilio Calimani in 1929.
                 </p>
             </div>
 
-            <div class="col-md-4 bg-warning rounded-lg overflow-auto">
+            <div class="col-md-4 bg-warning rounded-sm overflow-auto">
                 <h2>Mocha Latte</h2>
                 <img class="w-75 rounded-circle" src="images/mocha_latte.jpg" alt="Mocha Latte Coffee">
-                <a class="btn btn-primary my-2" href="#" role="button">Try our Mocha Latte &raquo;</a>
+                <a class="btn btn-primary" href="#" role="button">Try our Mocha Latte &raquo;</a>
                 <p>A caffe mocha is a variant of a caffè latte. Like a latte, it is typically one third espresso and two
                     thirds
                     steamed milk, but a portion of chocolate is added, typically in the form of a chocolate syrup.
                 </p>
             </div>
 
-            <div class="col-md-4 bg-info rounded-lg overflow-auto">
+            <div class="col-md-4 bg-info rounded-sm overflow-auto">
                 <h2>Turkish Coffee</h2>
                 <img class="w-75 rounded-circle" src="images/turkish.jpg" alt="Turkish coffee">
-                <a class="btn btn-primary my-2" href="#" role="button">Try our Turkish Coffee &raquo;</a>
+                <a class="btn btn-primary" href="#" role="button">Try our Turkish Coffee &raquo;</a>
                 <p>Beans for Turkish coffee are ground to a fine powder. Turkish coffee is prepared by immersing the
                     coffee
                     grounds in water and heating until it just boils.
@@ -197,117 +224,6 @@
             </div>
         </div> <!-- end div.row -->
     </div> <!-- end div.container -->
-
-    <div class="container-fluid bg-dark">
-        <!-- 
-            light text color: https://getbootstrap.com/docs/4.6/utilities/colors/#color
-         -->
-        <div class="row text-center text-light">
-            <!-- 
-        - italic and bold font: https://getbootstrap.com/docs/4.6/utilities/text/#font-weight-and-italics        
-        -->
-            <div class="col-sm-8 bg-danger font-weight-bold font-italic">
-                <h2>Stay Connected with us</h2>
-                <p>Sign up to get emails about exclusive offers from Coffee Corners!</p>
-            </div>
-            <div class="col-sm-4 bg-warning">
-                <!-- 
-                    Button trigger modal 
-                    
-                    Adding Bootstrap button:
-                    https://getbootstrap.com/docs/4.6/components/buttons/
-
-                    using the button class "btn-lg": https://getbootstrap.com/docs/4.6/components/buttons/#sizes
-
-                    - We need to connect this button with our modal,
-                    so it will activate our model window (div) when this button is clicked
-
-                    - We need to do it by using these two attributes: 
-                    * data-toggle="modal" => We CANNOT change
-                    * data-target="#exampleModal" => the value has to be same value of the id for teh corresponding div.modal
-
-                    The link: https://getbootstrap.com/docs/4.6/components/modal/#varying-modal-content
-
-                    The example for the connected button from BS:
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
-                        Open modal for @mdo
-                    </button>
-                -->
-                <button type="button" class="btn btn-primary mt-3 btn-lg" data-toggle="modal"
-                    data-target="#signup-modal">Sign Up Now</button>
-            </div>
-        </div> <!-- end div.row -->
-    </div> <!-- end div.container-fluid -->
-
-    <!-- 
-    Modal (Bootstrap Component): Bootstrap’s JavaScript modal plugin to add dialogs to your site for lightboxes, 
-    user notifications, or completely custom content. 
-    The main link for Modal: https://getbootstrap.com/docs/4.6/components/modal/
-
-    We will use BS Varying modal content:
-    The link: https://getbootstrap.com/docs/4.6/components/modal/#varying-modal-content
-
-    The example for the connected button from BS:
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
-        Open modal for @mdo
-    </button>
-
-    We will paste below the template from BS:
-                    
-    modify the id="exampleModal" to be id="signup-modal" because we changed the data-target for its button to be "#signup-modal"
-    We renamed all the text "exampleModal" to be "signup-modal"
-
-    -->
-    <div class="modal fade" id="signup-modal" tabindex="-1" aria-labelledby="signup-modalLabel" aria-hidden="true">
-        <!-- 
-        .modal-dialog: makes the modal narrower than the full width of the page
-        -->
-        <div class="modal-dialog">
-            <!-- 
-            .modal-content: the content inside our modal
-            -->
-            <div class="modal-content">
-                <!-- 
-                .modal-header:
-                -->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="signup-modalLabel">Sign up</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <!-- 
-                .modal-body:
-                -->
-                <div class="modal-body">
-                    <form>
-                        <!-- We will do the form in the next index file "index6" -->
-                        <h2>Form Elements</h2>
-                        <!-- We commented all the BS template code to be customized later  -->
-                        <!-- <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div> -->
-                    </form>
-                </div>
-                <!-- 
-                .modal-footer:
-                -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <!-- Submit the form with all the information -->
-                    <button type="button" class="btn btn-primary">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
 
     <footer class="jumbotron text-center">
         <h1 class="display-4">Coffee Corner</h1>
