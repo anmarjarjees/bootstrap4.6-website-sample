@@ -24,7 +24,7 @@
      -->
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Bootstrap Form</title>
+    <title>Bootstrap Modal And other spacing</title>
 </head>
 
 <body>
@@ -144,7 +144,26 @@
     </div> <!-- end div#carouselExampleCaptions -->
 
     <div class="container bg-dark">
+        <!-- 
+        Working Bootstrap Spacing:
+        The link: https://getbootstrap.com/docs/4.6/utilities/spacing/
+
+    Modify the margins and the padding of these three div elements
+    Adding padding for top and bottom of 5 and etc..
+
+    adding a padding of 3 rem to top and bottom
+    py-3 ==> padding on y-axis (from top and bottom)
+
+    adding a margin of 2 to all the sides
+
+    This div.row contains the three column divs for 3 coffee flavours
+    let's give it a class name to be use in our CSS custom file called "new-flav" new flavours
+    -->
         <div class="row text-center py-3 m-2 new-flav">
+            <!-- 
+                adding margins for divs with class of "col-" will distroy the BS grid system
+                m-1
+             -->
             <div class="col-md-4 bg-danger rounded-lg overflow-auto">
                 <h2>French Press</h2>
                 <img class="w-75 rounded-circle" src="images/frenchpress.jpg" alt="French Press Coffee">
@@ -180,18 +199,65 @@
     </div> <!-- end div.container -->
 
     <div class="container-fluid bg-dark">
+        <!-- 
+            light text color: https://getbootstrap.com/docs/4.6/utilities/colors/#color
+         -->
         <div class="row text-center text-light">
+            <!-- 
+        - italic and bold font: https://getbootstrap.com/docs/4.6/utilities/text/#font-weight-and-italics        
+        -->
             <div class="col-sm-8 bg-danger font-weight-bold font-italic">
                 <h2>Stay Connected with us</h2>
                 <p>Sign up to get emails about exclusive offers from Coffee Corners!</p>
             </div>
             <div class="col-sm-4 bg-warning">
+                <!-- 
+                    Button trigger modal 
+                    
+                    Adding Bootstrap button:
+                    https://getbootstrap.com/docs/4.6/components/buttons/
+
+                    using the button class "btn-lg": https://getbootstrap.com/docs/4.6/components/buttons/#sizes
+
+                    - We need to connect this button with our modal,
+                    so it will activate our model window (div) when this button is clicked
+
+                    - We need to do it by using these two attributes: 
+                    * data-toggle="modal" => We CANNOT change
+                    * data-target="#exampleModal" => the value has to be same value of the id for teh corresponding div.modal
+
+                    The link: https://getbootstrap.com/docs/4.6/components/modal/#varying-modal-content
+
+                    The example for the connected button from BS:
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                        Open modal for @mdo
+                    </button>
+                -->
                 <button type="button" class="btn btn-primary mt-3 btn-lg" data-toggle="modal"
                     data-target="#signup-modal">Sign Up Now</button>
             </div>
         </div> <!-- end div.row -->
     </div> <!-- end div.container-fluid -->
 
+    <!-- 
+    Modal (Bootstrap Component): Bootstrap’s JavaScript modal plugin to add dialogs to your site for lightboxes, 
+    user notifications, or completely custom content. 
+    The main link for Modal: https://getbootstrap.com/docs/4.6/components/modal/
+
+    We will use BS Varying modal content:
+    The link: https://getbootstrap.com/docs/4.6/components/modal/#varying-modal-content
+
+    The example for the connected button from BS:
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+        Open modal for @mdo
+    </button>
+
+    We will paste below the template from BS:
+                    
+    modify the id="exampleModal" to be id="signup-modal" because we changed the data-target for its button to be "#signup-modal"
+    We renamed all the text "exampleModal" to be "signup-modal"
+
+    -->
     <div class="modal fade" id="signup-modal" tabindex="-1" aria-labelledby="signup-modalLabel" aria-hidden="true">
         <!-- 
         .modal-dialog: makes the modal narrower than the full width of the page
@@ -209,223 +275,44 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </div> <!-- end div.modal-header -->
-
+                </div>
                 <!-- 
                 .modal-body:
                 -->
                 <div class="modal-body">
-                    <!-- 
-                        Customize the form elements: 
-                        BS Forms: https://getbootstrap.com/docs/4.6/components/forms/
-                    -->
                     <form>
-                        <!-- Practicing Different Format to layout the form elements-->
-                        <!-- 
-                            Form Grid Section (BS Docs):
-                            More complex forms can be built using BS grid classes. 
-                            Use these for form layouts that require multiple columns, varied widths, and additional alignment options.
-
-                            BS Link: https://getbootstrap.com/docs/4.6/components/forms/#form-grid
-
-                            we can swap .row for .form-row, a variation of our standard grid row that overrides the default column gutters for tighter and more compact layouts:
-
-                            <div class="row">
-                            <div class="form-row">
-
-                            Every individual element or block of form elements (depending on your code)
-                            can be inside "div.form-row" or "div.row" to avoide the overlaping issue
-                            
-                            or using one from-row to to be the main container for all the form elements
-                            for the entire fields but with col-? classes                           
-                         -->
-                        <div class="form-row">
-                            <!-- 
-                                Recap:
-                                the divs have class .col
-                                BS will layout the two divs evenly in any screen size: sm, md, lg, xl (even in smart-phones devcies)
-
-                                .col-sm-6 => will applied to sm, md, lg, and xl (except the small smart-phone screen or the tiny screen)
-
-                                Remember for extra-small screen BS will use the default option: 12 columns
-                             -->
-                            <div class="col-sm-6">
-                                <input type="text" id="fname" class="form-control" placeholder="First name">
-                                <!-- 
-                                    Addng Help Text:
-                                    BS Link: https://getbootstrap.com/docs/4.6/components/forms/#help-text
-                                 -->
-                                <small id="fnameHelp" class="form-text text-muted">
-                                    Your first name with characters only (no numbers or symbols)
-                                </small>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" placeholder="Last name">
-                                <small id="lnameHelp" class="form-text text-muted">
-                                    Your last name with characters only (no numbers or symbols)
-                                </small>
-                            </div>
-                        </div> <!-- end div.form-row -->
-                        <hr>
-                        <!-- 
-                            Adding:
-                            - Email
-                            - Address1
-                            - Address2
-                            - City
-                            - Province
-                            -->
-
-                        <!-- 
-                                Making Email field taking the entire row
-
-                                in BS grid system: .form-row has the same rules as .row
-                                which means we need to include the column classes
-                        -->
-                        <div class="form-row">
-                            <!-- 
-                                col-12 and not col-sm-12 ???
-                                1- col-sm-12 => works with sm, md, lg, xl
-                                2- col-12 => works with sm, md, lg, xl but also with extra small screen
-                             -->
-                            <div class="form-group col-12">
-                                <label for="email">Email address</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                                    placeholder="Enter valid email: info@example.com">
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
-                                    anyone
-                                    else.</small>
-                            </div>
-
-                            <div class="form-group col-sm-6">
-                                <label for="inputAddress1">Address 1</label>
-                                <input type="text" class="form-control" id="inputAddress1" placeholder="1234 Main St">
-                            </div>
-
-                            <div class="form-group col-sm-6">
-                                <label for="inputAddress2">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2"
-                                    placeholder="Apartment, studio, or floor">
-                            </div>
-                        </div> <!-- end div.form-row -->
-
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="inputCity">City</label>
-                                <input type="text" class="form-control" id="inputCity">
-                            </div>
-
-                            <div class="form-group col-md-5">
-                                <label for="inputProvince">Province</label>
-                                <select id="inputProvince" class="form-control">
-                                    <!-- 
-                                    We dont' want to use these items from BS template:
-
-                                    <option selected>Choose...</option>
-                                    <option>...</option> 
-
-                                    We copied the code from this link:
-                                    https://www.freeformatter.com/canada-province-list-html-select.html
-                                    -->
-                                    <option value="AB">Alberta</option>
-                                    <option value="BC">British Columbia</option>
-                                    <option value="MB">Manitoba</option>
-                                    <option value="NB">New Brunswick</option>
-                                    <option value="NL">Newfoundland and Labrador</option>
-                                    <option value="NS">Nova Scotia</option>
-                                    <option value="ON">Ontario</option>
-                                    <option value="PE">Prince Edward Island</option>
-                                    <option value="QC">Quebec</option>
-                                    <option value="SK">Saskatchewan</option>
-                                    <option value="NT">Northwest Territories</option>
-                                    <option value="NU">Nunavut</option>
-                                    <option value="YT">Yukon</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <label for="inputPC">Post Code</label>
-                                <input type="text" class="form-control" id="inputPC">
-                            </div>
-                        </div> <!-- end div.form-row -->
-
-                        <!-- 
-                     Adding our checkbox input elements for
-                     - By Email
-                     - By Mail
-                     - By SMS
-
-                     BS link: https://getbootstrap.com/docs/4.6/components/forms/#default-stacked
-
-                     Notic that the layout below works fine with any screen size as it's, so need to add rows and columns classes (Grid system)
-                  -->
-                        <hr>
-                        <h5>How do you want to receive our offers?</h5>
-                        <!-- 
-                            We need to modify the values of id and for attibutes based on our ideas or fields
-                         -->
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="signup-options" value="emailBox"
-                                id="emailCheckbox">
-                            <label class="form-check-label" for="emailCheckbox">
-                                By Email
-                            </label>
+                        <!-- We will do the form in the next index file "index6" -->
+                        <h2>Form Elements</h2>
+                        <!-- We commented all the BS template code to be customized later  -->
+                        <!-- <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name">
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="signup-options" value="smsBox"
-                                id="smsCheckbox">
-                            <label class="form-check-label" for="smsCheckbox">
-                                By SMS
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="signup-options" value="mailBox"
-                                id="mailCheckbox">
-                            <label class="form-check-label" for="mailCheckbox">
-                                By Mail
-                            </label>
-                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div> -->
                     </form>
-                </div> <!-- end div.modal-body -->
-
+                </div>
                 <!-- 
-                .modal-footer: => will allign the contents to the right
+                .modal-footer:
                 -->
-                <p class="bg-dark text-light font-weight-bold">Sorry this only for demonstartion, you can just use any
-                    button you like :-)</p>
-
-                <div class="modal-footer bg-light">
+                <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <!-- Submit the form with all the information -->
                     <button type="button" class="btn btn-primary">Submit</button>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <!-- 
-                    Or we can add our own custom footer to center all the content
-                 -->
-                <div class="text-center py-3 bg-warning">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <!-- Submit the form with all the information -->
-                    <button type="button" class="btn btn-primary">Submit</button>
-                </div>
-            </div> <!-- end div.modal-content -->
-        </div> <!-- end div."modal-dialog -->
-    </div> <!-- end div.modal -->
-    <!-- 
-        Let's change the container for "jumnotron" to be a normal div
-    -->
-    <div class="jumbotron text-center">
+
+
+
+    <footer class="jumbotron text-center">
         <h1 class="display-4">Coffee Corner</h1>
         <p class="lead font-weight-bold font-italic">The corner where you can have your favourite coffee mixed with your
             favourite moments!</p>
-    </div>
-
-    <!-- 
-        Adding a footer with a reasonable content
-     -->
-    <footer>
-        &copy; 2021 - Bootstrap Simple Demo - FSSD Group of Jan 2021
     </footer>
 
     <!-- All our HTML elements HAVE to be placed before calling our scripts (JavaScript): -->
